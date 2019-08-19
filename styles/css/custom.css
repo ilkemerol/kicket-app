@@ -1,0 +1,76 @@
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  background-color: #d8e4e6 !important;
+  border-color: #dee2e6 #dee2e6;
+}
+
+.nav-tabs {
+  border-bottom: 3px solid #d8e4e6 !important;
+}
+
+#add-api {
+  color: #d8e4e6 !important;
+}
+
+.hov-icon {
+  display: none;
+}
+
+#submitApi:hover p {
+  display: none;
+}
+
+#submitApi:hover .hov-icon {
+  display: inline;
+}
+
+#updateApi:hover p {
+  display: none;
+}
+
+#updateApi:hover .hov-icon {
+  display: inline;
+}
+
+.hr-r-l {
+  border: 0;
+  height: 1px;
+  background: #143840;
+  background-image: linear-gradient(to right, #143840, #143840, #fff);
+}
+
+.hr-l-r {
+  border: 0;
+  height: 1px;
+  background: #143840;
+  background-image: linear-gradient(to right, #fff, #143840, #143840);
+  border-radius: 10px;
+}
+
+.hr-r-l-walkt {
+  border: 0;
+  height: 3px;
+  background: #14384000;
+  background-image: linear-gradient(to right, #14384000, #14384000, #fff);
+  border-radius: 10px;
+}
+
+.hr-l-r-walkt {
+  border: 0;
+  height: 3px;
+  background: #14384000;
+  background-image: linear-gradient(to right, #fff, #14384000, #14384000);
+}
+
+#editor-load {
+  position: absolute;
+  width: 1110px;
+  height: 400px;
+  display: flex;
+  z-index: 1;
+}
+
+#deploy-load {
+  width: 1100px !important;
+  height: 400px !important;
+}
