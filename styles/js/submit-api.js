@@ -1,4 +1,6 @@
 $("#submitApi").click(function() {
+  clearDeployAnimation();
+  deployLoadInit();
   var body = {
     platform: currentPlatform(),
     code: editor.getValue()
@@ -9,15 +11,34 @@ $("#submitApi").click(function() {
     contentType: "application/json",
     data: JSON.stringify(body),
     success: function(data) {
-      // console.log(data.endpoint);
-      // console.log(data);
-      $("#basic-url").val(data.endpoint);
-      goToByScroll("testapi");
+      setTimeout(function() {
+        deployLoadReverse();
+      }, 1000);
+      setTimeout(function() {
+        $("#basic-url").val(data.endpoint);
+        goToByScroll("testapi");
+      }, 2500);
+    },
+    error: function(error) {
+      deployLoadError();
     }
   });
 });
 
-$("#sendReq").click(function() {
+$("#sendReqGET").click(function() {
+  $.ajax({
+    url: currentPath() + "/api/run/" + $("#basic-url").val(),
+    type: "GET",
+    contentType: "application/json",
+    data: reqEditor.getValue(),
+    success: function(data) {
+      resEditor.setValue(JSON.stringify(data));
+      formatCodeResponse();
+    }
+  });
+});
+
+$("#sendReqPOST").click(function() {
   $.ajax({
     url: currentPath() + "/api/run/" + $("#basic-url").val(),
     type: "POST",
@@ -31,6 +52,8 @@ $("#sendReq").click(function() {
 });
 
 function getExample() {
+  clearEditorLoad();
+  editorLoadInit();
   var body = {
     platform: currentPlatform()
   };
@@ -41,9 +64,21 @@ function getExample() {
     data: JSON.stringify(body),
     success: function(data) {
       editor.setValue(data.exampleCode);
-      formatCodeEditor();
+      if (body.platform === "html") {
+        formatCodeEditorHTML();
+      } else if (body.platform === "go") {
+        formatCodeEditorGo();
+      } else {
+        formatCodeEditor();
+      }
       reqEditor.setValue(data.exampleRequest);
       formatCodeRequest();
+      clearEditorLoad();
+    },
+    error: function(error) {
+      $(".loading-indicator > .dot").addClass("loading-indicator-error");
+      $("#editor-load-text").text("try again, later");
+      $("#submitApi").attr("disabled", true);
     }
   });
 }

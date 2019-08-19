@@ -5,6 +5,7 @@ dotenv.config();
 const dbService = require("./db.service");
 const createUtilityService = require("./create.utility.service");
 const runUtilityService = require("./run.utility.service");
+const existUtilityService = require("./exist.utility.service");
 const exampleUtilityService = require("./example.utility.service");
 
 exports.createCode = async function createCode(body, requestIp) {
@@ -13,7 +14,7 @@ exports.createCode = async function createCode(body, requestIp) {
     let api = await createUtilityService.getApi(body.platform);
     let header = await createUtilityService.getHeader(body.platform);
     let bodyData = await createUtilityService.getBody(body.platform, body);
-    console.log(api, header, bodyData);
+    // console.log(api, header, bodyData);
 
     response = await axios.post(api, bodyData, {
       headers: header
@@ -44,7 +45,6 @@ exports.runCode = async function runCode(uuid, body, ip) {
       let api = await runUtilityService.getApi(platform);
       let header = await runUtilityService.getHeader(platform);
       let bodyData = await runUtilityService.getBody(platform, body);
-
       if (platform !== "html") {
         response = await axios.post(api + uuid, bodyData, {
           headers: header
@@ -73,6 +73,29 @@ exports.exampleCode = async function exampleCode(body) {
     return axios.get(api, {
       headers: header
     });
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
+
+exports.getExistCode = async function getExistCode(uuid, ip) {
+  try {
+    const result = await dbService.findUUID(uuid);
+    if (result) {
+      let platform = result.platform;
+      let api = await existUtilityService.getApi(platform);
+      return axios.get(api + uuid);
+    } else {
+      const response = {
+        data: {
+          code:
+            "/* kicketCode: 'N993',kicketType: 'error', kicketMessage: 'No Such API'",
+          platform: "node"
+        }
+      };
+      return response;
+    }
   } catch (e) {
     console.error(e);
     throw e;

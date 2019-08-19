@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>o-o-</title>
+    <title>kicket | Deploy Rest API</title>
     <link
       href="https://fonts.googleapis.com/css?family=Kanit&display=swap"
       rel="stylesheet"
@@ -32,6 +32,14 @@
     <link href="../styles/css/custom.css" rel="stylesheet" type="text/css" />
     <link href="../styles/css/tabs.css" rel="stylesheet" type="text/css" />
     <link href="../styles/css/overlay.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/css/laptop.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/css/dots.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/css/exist-api.css" rel="stylesheet" type="text/css" />
+    <link
+      href="../styles/css/walkthrough.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
     <div class="container">
@@ -40,8 +48,8 @@
           <header class="cd-header">
             <div class="header-wrapper">
               <div class="logo-wrap z-depth-5">
-                <a href="#" class="hover-target"
-                  ><span>k</span>ic<span>k</span>et</a
+                <a href="#" class="hover-target">
+                  <span>k</span>ic<span>k</span>et</a
                 >
               </div>
               <div class="nav__overlay-but-wrap">
@@ -57,15 +65,103 @@
           <div class="nav__overlay">
             <div class="nav__overlay__content">
               <div class="nav__overlay__list-item">
-                <p>Lorem ipsum ...</p>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  style="border-radius: 10px;"
-                  onclick="removeOverlay()"
-                >
-                  Let's Start
-                </button>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <hr class="hr-r-l-walkt" />
+                      <div class="row">
+                        <div class="col-6">
+                          <h2 class="text-left">
+                            Hmm... How is it work?
+                          </h2>
+                        </div>
+                        <div class="col-6">
+                          <h2 class="text-right">
+                            <i
+                              class="fas fa-glasses"
+                              style="font-size: 30px;"
+                            ></i>
+                          </h2>
+                        </div>
+                      </div>
+                      <hr class="hr-l-r-walkt" />
+                    </div>
+                    <div class="col-12">
+                      <div id="walkthrough-load"></div>
+                    </div>
+                  </div>
+                </div>
+                <i
+                  class="fab fa-connectdevelop mb-3"
+                  style="font-size: 75px"
+                ></i>
+                <h5>We're preparing some tutorials about Kicket here for u.</h5>
+                <h5>
+                  In this process, u can visit our Github repositories, links
+                  are below.
+                </h5>
+                <h5>
+                  Also, u can join our Slack channel and feel free to ask
+                  question.
+                </h5>
+                <div class="container">
+                  <div class="row mt-5">
+                    <div class="col-4">
+                      <i class="fab fa-github-alt" style="font-size: 75px;"></i>
+                    </div>
+                    <div class="col-4">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        style="border-radius: 10px;"
+                        onclick="removeOverlay()"
+                      >
+                        Let's Start
+                      </button>
+                    </div>
+                    <div class="col-4">
+                      <i class="fab fa-slack" style="font-size: 75px;"></i>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-4">
+                      <a
+                        href="https://github.com/gurkanakdeniz/kicket"
+                        target="_blank"
+                        >Kicket App</a
+                      >
+                      <a
+                        href="https://github.com/gurkanakdeniz/kicket-java"
+                        target="_blank"
+                        >Kicket Java</a
+                      >
+                      <a
+                        href="https://github.com/gurkanakdeniz/kicket-python"
+                        target="_blank"
+                        >Kicket Python</a
+                      >
+                      <a
+                        href="https://github.com/ilkemerol/kicket-node"
+                        target="_blank"
+                        >Kicket Node JS</a
+                      >
+                      <a
+                        href="https://github.com/ilkemerol/kicket-html"
+                        target="_blank"
+                        >Kicket HTML</a
+                      >
+                      <a href="#" target="_blank">Kicket PHP</a>
+                    </div>
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                      <a
+                        href="https://join.slack.com/t/kicket/shared_invite/enQtNjc3MzcwNTYzMDg4LTY2ZWM5MDYxNmE5ZWIyNWY0ZTE4YTI5ZmY5MjE4NmRkNzdhMWRiNTZiMjZjOWMwZDVjODhjNjQ1ODhiZDJiNGM"
+                        target="_blank"
+                        >Kicket Channel</a
+                      >
+                    </div>
+                  </div>
+                </div>
               </div>
               <!--
                 <ul class="nav__overlay__list">
@@ -134,7 +230,7 @@
             <div class="heading" style="padding: 10px;">Editor Settings</div>
             <div class="contents">
               <div class="row">
-                <div class="col-6">
+                <div class="col-8">
                   <div class="row">
                     <div class="col-12"><h5>Editor Language</h5></div>
                   </div>
@@ -159,13 +255,16 @@
                             <a href="#" value="html"
                               ><i class="fab fa-html5"></i>HTML</a
                             >
+                            <a href="#" value="go"
+                              ><i class="fab fa-gofore"></i>GO</a
+                            >
                           </div>
                         </nav>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-4">
                   <div class="row">
                     <div class="col-12"><h5>Editor Theme</h5></div>
                   </div>
@@ -191,25 +290,52 @@
             </div>
           </div>
           <div class="editorOut" style="padding: 10px 0 10px 0;">
+            <div id="editor-load" class="d-none"></div>
+            <div id="deploy-load" class="d-none"></div>
             <div id="editor" class="z-depth-3"></div>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
-          <button
-            id="updateApi"
-            type="button"
-            class="btn btn-outline-default mb-5"
-            style="border-radius: 10px; color: #d8e4e6 !important; max-width: 143.19px; max-height: 45.38px; min-width: 143.19px; min-height: 45.38px;"
-          >
-            <p class="animated fadeInDown m-0">Update API</p>
-            <p class="hov-icon animated fadeInUp m-0">
-              <i class="fas fa-sync-alt" style="font-size: 20px;"></i>
-            </p>
-          </button>
+        <div class="col-9">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button
+                class="border-first-btn-full search-button btn btn-outline-default waves-effect align-h align-w margin-align-btn"
+                type="button"
+                id="existApiGET"
+                style="color: #d8e4e6 !important;"
+              >
+                <p class="animated fadeInDown m-0">Exist API</p>
+              </button>
+            </div>
+            <div class="exist-api-input margin-align-field">
+              <i id="div-icon" class="fas fa-angle-right icon ml-2 mr-2"></i>
+              <input
+                type="text"
+                id="apiField"
+                class="form-control align-h gradient"
+                placeholder="Paste hash here to get exist API to editor"
+                val=""
+                aria-label="Example text with button addon"
+                aria-describedby="button-addon1"
+                style="border:2px solid; border-radius: 0px; background: transparent; color: #d8e4e6 !important;"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-md btn-outline-secondary m-0 px-3 py-2 z-depth-0 waves-effect align-h"
+                  type="button"
+                  id="updateApi"
+                  style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6" style="text-align: end;">
+
+        <div class="col-3" style="text-align: end;">
           <button
             id="submitApi"
             type="button"
@@ -223,9 +349,11 @@
           </button>
         </div>
       </div>
-      <div id="testapiBegin" class="row mb-5">
+      <div id="testapi" class="row mb-5">
         <div class="col-12">
-          <h2><i class="mr-3"> </i></h2>
+          <hr class="hr-r-l" />
+          <h2><i class="fas fa-cog fa-spin mr-3"></i>Test Your Kicket API</h2>
+          <hr class="hr-l-r" />
         </div>
       </div>
       <div class="row">
@@ -251,9 +379,27 @@
                     />
                     <div class="input-group-append">
                       <button
+                        class="btn btn-md btn-outline-default m-0 px-3 py-2 z-depth-0 waves-effect"
+                        type="button"
+                        id="cc"
+                        style="background: #fff !important;"
+                      >
+                        Copy<span style="display: none;"
+                          ><i class="far fa-copy ml-1"></i
+                        ></span>
+                      </button>
+                      <button
                         class="btn btn-md btn-outline-primary m-0 px-3 py-2 z-depth-0 waves-effect"
                         type="button"
-                        id="sendReq"
+                        id="sendReqGET"
+                        style="background: #fff !important;"
+                      >
+                        GET
+                      </button>
+                      <button
+                        class="btn btn-md btn-outline-primary m-0 px-3 py-2 z-depth-0 waves-effect"
+                        type="button"
+                        id="sendReqPOST"
                         style="border-top-right-radius: 10px; border-bottom-right-radius: 10px; background: #fff !important;"
                       >
                         POST
@@ -282,13 +428,9 @@
           </div>
         </div>
       </div>
-      <div id="testapi" class="row mb-5">
-        <div class="col-12">
-          <h2><i class="fas fa-cog fa-spin mr-3"></i>Test API</h2>
-        </div>
-      </div>
     </div>
   </body>
+   <!--  -->
   <!-- JQuery -->
   <script
     type="text/javascript"
@@ -309,13 +451,17 @@
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"
   ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.8/beautify-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify-css.js"></script>
+  <script src="../styles/js/attach.js"></script>
   <script src="../styles/js/common.js"></script>
+  <script src="../styles/js/load-animation.js"></script>
   <script src="../styles/js/code-editor.js"></script>
   <script src="../styles/js/accordion.js"></script>
   <script src="../styles/js/submit-api.js"></script>
   <script src="../styles/js/tabs.js"></script>
   <script src="../styles/js/overlay.js"></script>
+  <script src="../styles/js/exist-api.js"></script>
 </html>
