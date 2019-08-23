@@ -3,6 +3,21 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>kicket | Deploy Rest API</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-101008405-6"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-101008405-6");
+    </script>
+
     <link
       href="https://fonts.googleapis.com/css?family=Kanit&display=swap"
       rel="stylesheet"
@@ -40,6 +55,8 @@
       rel="stylesheet"
       type="text/css"
     />
+    <link href="../styles/css/history.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/css/footer.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="container">
@@ -72,13 +89,13 @@
                       <div class="row">
                         <div class="col-6">
                           <h2 class="text-left">
-                            Hmm... How is it work?
+                            Hmm... Where should I start?
                           </h2>
                         </div>
                         <div class="col-6">
                           <h2 class="text-right">
                             <i
-                              class="fas fa-glasses"
+                              class="fas fa-glasses animated swing infinite slow"
                               style="font-size: 30px;"
                             ></i>
                           </h2>
@@ -91,6 +108,15 @@
                     </div>
                   </div>
                 </div>
+                <i style="display:block;"
+                  >P.S. you can find more technical detail in
+                  <a
+                    style="display:initial;"
+                    href="https://github.com/gurkanakdeniz/kicket/blob/master/README.md"
+                    >here</a
+                  ></i
+                >
+                <br />
                 <i
                   class="fab fa-connectdevelop mb-3"
                   style="font-size: 75px"
@@ -141,6 +167,11 @@
                         >Kicket Python</a
                       >
                       <a
+                        href="https://github.com/gurkanakdeniz/kicket-go"
+                        target="_blank"
+                        >Kicket Golang</a
+                      >
+                      <a
                         href="https://github.com/ilkemerol/kicket-node"
                         target="_blank"
                         >Kicket Node JS</a
@@ -150,7 +181,11 @@
                         target="_blank"
                         >Kicket HTML</a
                       >
-                      <a href="#" target="_blank">Kicket PHP</a>
+                      <a
+                        href="https://github.com/mertcc34/exec-php"
+                        target="_blank"
+                        >Kicket PHP</a
+                      >
                     </div>
                     <div class="col-4"></div>
                     <div class="col-4">
@@ -227,10 +262,12 @@
           aria-labelledby="api-1-tab"
         >
           <div id="editorSettings" class="accordion mt-2 mb-3">
-            <div class="heading" style="padding: 10px;">Editor Settings</div>
+            <div id="editorHeading" class="heading" style="padding: 10px;">
+              Editor Settings
+            </div>
             <div class="contents">
               <div class="row">
-                <div class="col-8">
+                <div class="col-lg-8 col-sm-12 col-xs-12">
                   <div class="row">
                     <div class="col-12"><h5>Editor Language</h5></div>
                   </div>
@@ -241,22 +278,46 @@
                           <div class="selector"></div>
                           <div id="platform">
                             <a href="#" class="active" value="node"
-                              ><i class="fab fa-js"></i>Node JS</a
+                              ><i class="fab fa-js"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid #fff"
+                                >Node JS</u
+                              ></a
                             >
                             <a href="#" value="java"
-                              ><i class="fab fa-java"></i>Java</a
+                              ><i class="fab fa-java"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid #fff"
+                                >Java</u
+                              ></a
                             >
                             <a href="#" value="python"
-                              ><i class="fab fa-python"></i>Python</a
+                              ><i class="fab fa-python"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid #fff"
+                                >Python</u
+                              ></a
                             >
                             <a href="#" value="php"
-                              ><i class="fab fa-php"></i>PHP</a
+                              ><i class="fab fa-php"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid red"
+                                >PHP</u
+                              ></a
                             >
                             <a href="#" value="html"
-                              ><i class="fab fa-html5"></i>HTML</a
+                              ><i class="fab fa-html5"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid #fff"
+                                >HTML</u
+                              ></a
                             >
                             <a href="#" value="go"
-                              ><i class="fab fa-gofore"></i>GO</a
+                              ><i class="fab fa-gofore"></i
+                              ><u
+                                style="text-decoration: none; border-bottom: 2px solid orange"
+                                >Go</u
+                              ></a
                             >
                           </div>
                         </nav>
@@ -264,7 +325,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-sm-12 col-xs-12">
                   <div class="row">
                     <div class="col-12"><h5>Editor Theme</h5></div>
                   </div>
@@ -317,7 +378,6 @@
                 class="form-control align-h gradient"
                 placeholder="Paste hash here to get exist API to editor"
                 val=""
-                aria-label="Example text with button addon"
                 aria-describedby="button-addon1"
                 style="border:2px solid; border-radius: 0px; background: transparent; color: #d8e4e6 !important;"
               />
@@ -327,6 +387,7 @@
                   type="button"
                   id="updateApi"
                   style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
+                  disabled
                 >
                   Update
                 </button>
@@ -349,12 +410,15 @@
           </button>
         </div>
       </div>
-      <div id="testapi" class="row mb-5">
+      <div id="testapi" class="row mb-2">
         <div class="col-12">
           <hr class="hr-r-l" />
           <h2><i class="fas fa-cog fa-spin mr-3"></i>Test Your Kicket API</h2>
           <hr class="hr-l-r" />
         </div>
+      </div>
+      <div class="row">
+        <div id="history-load" class="col-12 text-center"></div>
       </div>
       <div class="row">
         <div class="col-12">
@@ -429,6 +493,7 @@
         </div>
       </div>
     </div>
+    <div id="footer-load"></div>
   </body>
    <!--  -->
   <!-- JQuery -->
@@ -453,8 +518,10 @@
   ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.2/beautify-html.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.0/beautify-css.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/tr.js"></script>
   <script src="../styles/js/attach.js"></script>
   <script src="../styles/js/common.js"></script>
   <script src="../styles/js/load-animation.js"></script>
@@ -464,4 +531,5 @@
   <script src="../styles/js/tabs.js"></script>
   <script src="../styles/js/overlay.js"></script>
   <script src="../styles/js/exist-api.js"></script>
+  <script src="../styles/js/initlzr.js"></script>
 </html>

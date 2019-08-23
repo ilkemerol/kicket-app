@@ -18,6 +18,21 @@ $("#submitApi").click(function() {
         $("#basic-url").val(data.endpoint);
         goToByScroll("testapi");
       }, 2500);
+      var uuidList = [];
+      var apiObj = {
+        uuid: data.endpoint,
+        platform: body.platform,
+        date: moment().format("DD/MM HH:mm")
+      };
+      if (localStorage.getItem("uuids") === null) {
+        uuidList.unshift(apiObj);
+        localStorage.setItem("uuids", JSON.stringify(uuidList));
+      } else {
+        uuidList = JSON.parse(localStorage.getItem("uuids"));
+        uuidList.unshift(apiObj);
+        localStorage.setItem("uuids", JSON.stringify(uuidList));
+      }
+      history();
     },
     error: function(error) {
       deployLoadError();
@@ -71,6 +86,10 @@ function getExample() {
       } else {
         formatCodeEditor();
       }
+
+      if (data.exampleComment) {
+        editor.session.insert({ row: 0, column: 0 }, data.exampleComment);
+      }
       reqEditor.setValue(data.exampleRequest);
       formatCodeRequest();
       clearEditorLoad();
@@ -78,6 +97,7 @@ function getExample() {
     error: function(error) {
       $(".loading-indicator > .dot").addClass("loading-indicator-error");
       $("#editor-load-text").text("try again, later");
+      $("#pl").removeClass("disabled-div");
       $("#submitApi").attr("disabled", true);
     }
   });
