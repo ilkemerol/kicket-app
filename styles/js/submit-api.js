@@ -71,6 +71,10 @@ function getExample() {
       } else {
         formatCodeEditor();
       }
+
+      if (data.exampleComment) {
+        editor.session.insert({ row: 0, column: 0 }, data.exampleComment);
+      }
       reqEditor.setValue(data.exampleRequest);
       formatCodeRequest();
       clearEditorLoad();
@@ -78,6 +82,7 @@ function getExample() {
     error: function(error) {
       $(".loading-indicator > .dot").addClass("loading-indicator-error");
       $("#editor-load-text").text("try again, later");
+      $("#pl").removeClass("disabled-div");
       $("#submitApi").attr("disabled", true);
     }
   });
